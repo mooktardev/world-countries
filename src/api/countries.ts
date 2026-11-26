@@ -18,8 +18,14 @@ const LIST_FIELDS = 'cca3,name,flags,capital,region,population'
 const DETAIL_FIELDS =
   'cca3,name,flags,capital,region,subregion,population,area,languages,currencies,borders,tld'
 
+// Clé optionnelle, lue au build depuis .env.local (VITE_RESTCOUNTRIES_KEY).
+// Attention : elle est incluse dans le bundle et donc visible dans le navigateur.
+const API_KEY = import.meta.env.VITE_RESTCOUNTRIES_KEY as string | undefined
+
 async function get<T>(path: string): Promise<T> {
-  const res = await fetch(`${BASE}${path}`)
+  const res = await fetch(`${BASE}${path}`, {
+    headers: API_KEY ? { Authorization: `Bearer ${API_KEY}` } : undefined,
+  })
   if (!res.ok) throw new Error(`Erreur API (${res.status})`)
   return res.json() as Promise<T>
 }
