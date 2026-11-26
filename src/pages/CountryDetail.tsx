@@ -60,6 +60,7 @@ export default function CountryDetail() {
                 {c.unMember && <span className="chip">Membre de l'ONU</span>}
                 {c.landlocked && <span className="chip">Sans accès à la mer</span>}
               </div>
+              {c.note && <p className="note">{c.note}</p>}
               <Section title="Général">
                 <Row label="Nom natif" value={native} />
                 <Row label="Capitale" value={c.capital?.join(', ')} />
