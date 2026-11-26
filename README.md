@@ -18,3 +18,8 @@ npm run dev
 ```
 
 Build de production : `npm run build` (sortie dans `dist/`).
+
+## Clé API
+Copiez `.env.example` vers `.env.local` et renseignez `VITE_RESTCOUNTRIES_KEY`.
+La clé est envoyée en `Authorization: Bearer <clé>`. Elle est incluse dans le bundle
+et donc visible dans le navigateur : ne la committez jamais et limitez ses droits.

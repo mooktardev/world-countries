@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
 
 export default function Header() {
@@ -6,6 +6,10 @@ export default function Header() {
   return (
     <header className="header">
       <Link to="/" className="logo">🌍 Pays du monde</Link>
+      <nav className="nav">
+        <NavLink to="/" end>Liste</NavLink>
+        <NavLink to="/globe">Globe 3D</NavLink>
+      </nav>
       <button onClick={toggle} aria-label="Changer de thème">
         {theme === 'light' ? '🌙 Sombre' : '☀️ Clair'}
       </button>
