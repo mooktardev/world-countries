@@ -32,3 +32,9 @@ dt { font-weight: 600; } dd { margin: 0; }
 .chip { padding: .3rem .8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; font-size: .9rem; }
 .chip:hover { border-color: var(--accent); }
 @media (max-width: 800px) { .detail { grid-template-columns: 1fr; gap: 1.5rem; } }
+.coat { width: 96px !important; height: 96px; object-fit: contain; margin-top: 1rem; background: transparent !important; box-shadow: none !important; }
+.badges { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
+.section { margin-top: 1.5rem; }
+.section h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 .6rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
+.links { display: flex; gap: 1rem; margin-top: 1.25rem; }
+.links a { color: var(--accent); font-weight: 600; }

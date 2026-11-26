@@ -11,12 +11,26 @@ export interface Country {
   currencies?: Record<string, { name: string; symbol?: string }>
   borders?: string[]
   tld?: string[]
+  cca2?: string
+  continents?: string[]
+  independent?: boolean
+  unMember?: boolean
+  landlocked?: boolean
+  idd?: { root?: string; suffixes?: string[] }
+  timezones?: string[]
+  car?: { side?: string }
+  startOfWeek?: string
+  gini?: Record<string, number>
+  demonyms?: { eng?: { m: string; f: string } }
+  latlng?: [number, number]
+  coatOfArms?: { svg?: string; png?: string }
+  maps?: { googleMaps?: string; openStreetMaps?: string }
 }
 
 const BASE = 'https://restcountries.com/v3.1'
 const LIST_FIELDS = 'cca3,name,flags,capital,region,population'
 const DETAIL_FIELDS =
-  'cca3,name,flags,capital,region,subregion,population,area,languages,currencies,borders,tld'
+  'cca3,cca2,name,flags,capital,region,subregion,population,area,languages,currencies,borders,tld,continents,independent,unMember,landlocked,idd,timezones,car,startOfWeek,gini,demonyms,latlng,coatOfArms,maps'
 
 // Clé optionnelle, lue au build depuis .env.local (VITE_RESTCOUNTRIES_KEY).
 // Attention : elle est incluse dans le bundle et donc visible dans le navigateur.
