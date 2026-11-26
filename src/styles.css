@@ -38,3 +38,17 @@ dt { font-weight: 600; } dd { margin: 0; }
 .section h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 .6rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
 .links { display: flex; gap: 1rem; margin-top: 1.25rem; }
 .links a { color: var(--accent); font-weight: 600; }
+.nav { display: flex; gap: .5rem; }
+.nav a { padding: .5rem .9rem; border-radius: 8px; font-weight: 600; color: var(--muted); }
+.nav a.active { background: var(--bg); color: var(--text); }
+.globe-page { display: grid; grid-template-columns: 1fr 300px; height: calc(100vh - 64px); }
+.globe-wrap { min-width: 0; min-height: 0; background: radial-gradient(circle at 50% 50%, #16233a, #060b16); overflow: hidden; }
+.globe-panel { padding: 1.5rem; background: var(--surface); border-left: 1px solid var(--border); overflow: auto; }
+.globe-panel h1 { margin-top: 0; font-size: 1.3rem; }
+.globe-panel p { color: var(--muted); }
+.legend { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.legend li { display: flex; align-items: center; gap: .6rem; }
+.legend span { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+.globe-hover { margin-top: 1.5rem; padding: 1rem; background: var(--bg); border-radius: 8px; font-weight: 700; }
+.globe-tip { background: rgba(11,18,32,.92); color: #fff; padding: .5rem .75rem; border-radius: 6px; font-size: .85rem; }
+@media (max-width: 800px) { .globe-page { grid-template-columns: 1fr; grid-template-rows: 1fr auto; } .globe-panel { border-left: 0; border-top: 1px solid var(--border); } }

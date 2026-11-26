@@ -1,5 +1,6 @@
 export interface Country {
   cca3: string
+  ccn3?: string
   name: { common: string; official: string; nativeName?: Record<string, { common: string }> }
   flags: { svg: string; png: string; alt?: string }
   capital?: string[]
@@ -28,7 +29,7 @@ export interface Country {
 }
 
 const BASE = 'https://restcountries.com/v3.1'
-const LIST_FIELDS = 'cca3,name,flags,capital,region,population'
+const LIST_FIELDS = 'cca3,ccn3,name,flags,capital,region,population'
 const DETAIL_FIELDS =
   'cca3,cca2,name,flags,capital,region,subregion,population,area,languages,currencies,borders,tld,continents,independent,unMember,landlocked,idd,timezones,car,startOfWeek,gini,demonyms,latlng,coatOfArms,maps'
 
