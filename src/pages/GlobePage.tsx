@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Globe, { type GlobeMethods } from 'react-globe.gl'
+import { Color, MeshPhongMaterial } from 'three'
 import { feature } from 'topojson-client'
 import type { Topology } from 'topojson-specification'
 import type { Feature, FeatureCollection, Geometry } from 'geojson'
@@ -22,6 +23,8 @@ const REGION_FR: Record<string, string> = {
   Africa: 'Afrique', Americas: 'Amériques', Asia: 'Asie',
   Europe: 'Europe', Oceania: 'Océanie', Antarctic: 'Antarctique',
 }
+
+const oceanMaterial = new MeshPhongMaterial({ color: new Color('#12345c') })
 
 const topology = worldData as unknown as Topology
 const features = (feature(topology, topology.objects.countries) as unknown as FeatureCollection<
@@ -57,7 +60,6 @@ export default function GlobePage() {
   const onGlobeReady = () => {
     const g = globeRef.current
     if (!g) return
-    ;(g.globeMaterial() as unknown as { color: { set: (c: string) => void } }).color.set('#12345c')
     g.controls().autoRotate = true
     g.controls().autoRotateSpeed = 0.4
     g.pointOfView({ lat: 20, lng: 10, altitude: 2.2 })
@@ -79,7 +81,7 @@ export default function GlobePage() {
           width={size.w}
           height={size.h}
           backgroundColor="rgba(0,0,0,0)"
-          globeImageUrl={undefined}
+          globeMaterial={oceanMaterial}
           showAtmosphere
           atmosphereColor="#6ea8ff"
           polygonsData={features}
