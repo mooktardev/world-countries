@@ -1,7 +1,9 @@
-import type { ReactNode } from 'react'
+import { lazy, Suspense, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { fetchByCode, fetchByCodes } from '../api/countries'
 import { useAsync } from '../hooks/useAsync'
+
+const CountryMap = lazy(() => import('../components/CountryMap'))
 
 const SIDE: Record<string, string> = { left: 'Gauche', right: 'Droite' }
 const DAY: Record<string, string> = {
@@ -108,6 +110,9 @@ export default function CountryDetail() {
               </div>
             </div>
           </div>
+          <Suspense fallback={<p className="status">Chargement de la carte…</p>}>
+            <CountryMap key={c.cca3} code={c.cca3} ccn3={c.ccn3} name={c.name.common} />
+          </Suspense>
         </>
       )}
     </main>

@@ -56,3 +56,15 @@ dt { font-weight: 600; } dd { margin: 0; }
 .globe-tip { background: rgba(11,18,32,.92); color: #fff; padding: .5rem .75rem; border-radius: 6px; font-size: .85rem; }
 @media (max-width: 800px) { .globe-page { grid-template-columns: 1fr; grid-template-rows: 1fr auto; } .globe-panel { border-left: 0; border-top: 1px solid var(--border); } }
 .note { padding: .75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-size: .9rem; }
+.country-map { margin-top: 3rem; }
+.country-map svg { width: 100%; height: auto; max-height: 520px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.subdiv { fill: var(--accent); stroke: var(--surface); stroke-width: .8; stroke-linejoin: round; transition: fill .12s, fill-opacity .12s; }
+.subdiv[data-tone='0'] { fill-opacity: .30; } .subdiv[data-tone='1'] { fill-opacity: .45; }
+.subdiv[data-tone='2'] { fill-opacity: .60; } .subdiv[data-tone='3'] { fill-opacity: .75; }
+.subdiv.is-hover { fill: #f59e0b; fill-opacity: 1; }
+.map-caption { min-height: 1.4em; font-weight: 600; margin: .75rem 0 0; }
+.country-map details { margin-top: .5rem; color: var(--muted); }
+.country-map summary { cursor: pointer; }
+.subdiv-list { columns: 3 200px; padding-left: 1.2rem; margin: .5rem 0 0; font-size: .9rem; }
+.map-credit { color: var(--muted); font-size: .8rem; margin: 1rem 0 0; }
+.footer { padding: 1.5rem 5vw; text-align: center; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--border); }

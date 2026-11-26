@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import CountryDetail from './pages/CountryDetail'
 
@@ -22,6 +23,7 @@ export default function App() {
           }
         />
       </Routes>
+      <Footer />
     </HashRouter>
   )
 }
